@@ -38,7 +38,7 @@ authe = firebase.auth()
 
 
 def login(request):
-    return render(request, 'login/login.html')
+    return render(request, 'Login/login.html')
 
 def testSignUp(request):
     return render(request, "login/testSignUp.html")
