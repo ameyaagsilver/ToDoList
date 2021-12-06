@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>testingSessionId page</title>
+        <style>
+            div{
+                position: absolute;
+                right: 10px;
+                top:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>We are testing testingSessionId in differnet page after login</h1>
+        <div>
+            <button type="button" onclick="location.href=`{% url 'logout' %}`">Logout</button>
+        </div>
+    </body>
+</html>

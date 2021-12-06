@@ -1,0 +1,27 @@
+{% if message %}
+<script>
+alert('{{ message }}');
+</script>
+{% endif %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+    </head>
+
+    <body>
+        <form action="/postLogin/" method="post">
+            {% csrf_token %}
+            Email 
+            <input type="text" name="email">  
+            <br><br>
+            Password 
+            <input type="password" name="password"> 
+            <br><br>
+            <input type="submit" value="Sign In">
+            <button type="button" onclick="location.href=`{% url 'signUp' %}`">SignUp</button>
+        </form>
+    </body>
+</html>

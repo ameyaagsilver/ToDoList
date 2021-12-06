@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            div{
+                position: absolute;
+                right: 10px;
+                top:5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>To Do List</h1>
+        <form action="/addData/" method="post">
+            {% csrf_token %}
+            Task Name 
+            <input type="text" name="Task">  
+            <br><br>
+            Description 
+            <input type="text" name="Description">  
+            <br><br>
+            <input type="submit" value="Add new task">
+        </form>
+        <br><br>
+        {% for data in d %}
+        {{data.Task}}
+        <br>
+        {{data.Description}}
+        <br>
+        {{data.isDone}}
+        <br>
+        <form action="/deleteData/" method="post">
+            {% csrf_token %}
+            <input type="hidden" value={{data.id}} name="docId">
+            <input type="submit" value="Delete">
+        </form>
+        <br><br>
+        {% endfor %}
+
+        <div>
+            <button type="button" onclick="location.href=`{% url 'logout' %}`">Logout</button>
+        </div>
+    </body>
+</html>

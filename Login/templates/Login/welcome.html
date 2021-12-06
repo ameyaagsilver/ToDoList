@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        div{
+            position: absolute;
+            right: 10px;
+            top:5px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div>
+    <button type="button" onclick="location.href=`{% url 'logout' %}`">Logout</button>
+</div>
+Welcome {{ email }} to welcome page <br><br>
+<button type="button" onclick="location.href=`{% url 'toDoList' %}`">To Do List</button>
+
+</body>
+</html>
