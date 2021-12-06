@@ -46,12 +46,12 @@ def testSignUp(request):
 def postSignUp(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
-    # try:
-    #     user = authe.create_user_with_email_and_password(email, password)
-    # except:
-    #     message="Try again!!!Unable to sign you up"
-    #     return render(request, "login/testSignUp.html", {"message" : message})
-    user = authe.create_user_with_email_and_password(email, password)
+    try:
+        user = authe.create_user_with_email_and_password(email, password)
+    except:
+        message="Try again!!!Unable to sign you up"
+        return render(request, "login/testSignUp.html", {"message" : message})
+    # user = authe.create_user_with_email_and_password(email, password)
     user_id = user['localId']
     databaseRef = db.collection('ToDo').document(user_id).collection('toDoList').document('initDoc')
     print(databaseRef.set({'init':"Reject this specific document from your To Do List"}))
