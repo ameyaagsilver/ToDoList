@@ -6,6 +6,10 @@ from firebase_admin import auth
 from pyasn1.type.univ import Null
 import pyrebase
 from django.contrib import auth
+from django.templatetags.static import static
+
+from ToDoList.settings import STATIC_ROOT
+
 
 class toDoData:
     id: str
@@ -24,7 +28,7 @@ firebaseConfig = {
     "appId": "1:447584694516:web:f56d8c08b7c51d576e6ea1",
     "measurementId": "G-2XKMK8G1DT"
   };
-cred = credentials.Certificate("Login\serviceAccountKey.json")
+cred = credentials.Certificate(STATIC_ROOT +'serviceAccountKey.json')
 fapp = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
