@@ -24,7 +24,7 @@ firebaseConfig = {
     "appId": "1:447584694516:web:f56d8c08b7c51d576e6ea1",
     "measurementId": "G-2XKMK8G1DT"
   };
-cred = credentials.Certificate("D:\Projects\ToDoList\Login\serviceAccountKey.json")
+cred = credentials.Certificate("Login\serviceAccountKey.json")
 fapp = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
