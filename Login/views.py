@@ -41,7 +41,7 @@ def login(request):
     return render(request, 'Login/login.html')
 
 def testSignUp(request):
-    return render(request, "login/testSignUp.html")
+    return render(request, "Login/testSignUp.html")
 
 def postSignUp(request):
     email = request.POST.get('email')
@@ -58,7 +58,7 @@ def postSignUp(request):
     return render(request, "login/testLogin.html")
 
 def testLogin(request):
-    return render(request, 'login/testLogin.html')
+    return render(request, 'Login/testLogin.html')
 
 def postLogin(request):
     email = request.POST.get('email')
@@ -72,7 +72,7 @@ def postLogin(request):
     # session_id = user['idToken']
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
-    return render(request, 'login/welcome.html', {"email":email})
+    return render(request, 'Login/welcome.html', {"email":email})
 
 def logout(request):
     auth.logout(request)
@@ -80,7 +80,7 @@ def logout(request):
         del request.session['uid']
     except:
         pass
-    return render(request, "login/testLogin.html")
+    return render(request, "Login/testLogin.html")
 
 # def testingSessionId(request):
 #     # print("This is testingSessionId page")
@@ -107,7 +107,7 @@ def testData(request):
     # print("**********************************1")
     # print(d)
     # print("**********************************2")
-    return render(request, 'login/testData.html', {'d':d})
+    return render(request, 'Login/testData.html', {'d':d})
     # return render(request, 'login/testData.html')
 
 def toDoList(request):
@@ -125,7 +125,7 @@ def toDoList(request):
         tempObject.isDone = doc.to_dict()['isDone']
         tempObject.Task = doc.to_dict()['Task']
         d.append(tempObject)
-    return render(request, 'login/toDoList.html', {'d':d})
+    return render(request, 'Login/toDoList.html', {'d':d})
 
 def addTestData(user_id):
     databaseRef = db.collection('ToDo').document(user_id).collection('toDoList')
